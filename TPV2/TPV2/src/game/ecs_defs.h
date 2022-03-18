@@ -36,4 +36,11 @@ _ASTEROID_GRP
     _hdlr_CAZA, \
 	_hdlr_GAMEINFO
 
+#define _SYSLIST \
+    _sys_FIGHTER, \
+    _sys_PADDLES, \
+    _sys_RENDER, \
+    _sys_GAMECTRL, \
+    _sys_COLLISIONS
+
 

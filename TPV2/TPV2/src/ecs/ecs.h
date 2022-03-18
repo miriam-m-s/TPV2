@@ -63,7 +63,7 @@ enum hdlrId : hdlrId_type {
 
 // list of system identifiers
 enum sysId : hdlrId_type {
-	_SYS_LIST_, /* taken from ../game/ecs_defs */
+	_SYSLIST, /* taken from ../game/ecs_defs */
 
 	// do not remove this
 	_LAST_SYS_ID
