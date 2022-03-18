@@ -1,0 +1,95 @@
+{
+
+  "fonts" : [
+    { "id" : "ARIAL16", "file" : "resources/fonts/ARIAL.ttf", "size": 16 },
+    { "id" : "ARIAL24", "file" : "resources/fonts/ARIAL.ttf", "size": 24 },
+    { "id" : "ARIAL48", "file" : "resources/fonts/ARIAL.ttf", "size": 48 }
+  ],
+
+  "images": [
+   
+    
+    {
+      "id": "fighter",
+      "file": "resources/images/fighter2.png"
+    },
+    {
+      "id": "asteroidgold",
+      "file": "resources/images/asteroid_gold.png"
+    },
+    {
+      "id": "asteroid",
+      "file": "resources/images/asteroid.png"
+    },
+    {
+      "id": "fire",
+      "file": "resources/images/fire.png"
+    },
+    {
+      "id": "heart",
+      "file": "resources/images/heart.png"
+    }
+  ],
+
+  "messages": [
+    {
+      "id": "PressAnyKey",
+      "text": "Press Any Key",
+      "font": "ARIAL24",
+      "color": "0x112233ff",
+      "bg": "0xffffffff"
+    },
+    {
+      "id": "HelloSDL",
+      "text": "Hello SDL!",
+      "font": "ARIAL48",
+      "color": "0x0000ffff"
+    },
+    {
+      "id": "addstars",
+      "text": "Press SPACE to add stars to eat!",
+      "font": "ARIAL16",
+      "color": "0x00ff00ff"
+    },
+    {
+      "id": "gameover",
+      "text": "GAMEOVER",
+      "font": "ARIAL16",
+      "color": "0x00ff00ff"
+    },
+    {
+      "id": "start",
+      "text": "PRESS SPACE TO START ",
+      "font": "ARIAL16",
+      "color": "0x00ff00ff"
+    },
+    {
+      "id": "continue",
+      "text": "PRESS SPACE TO CONTINUE ",
+      "font": "ARIAL16",
+      "color": "0x00ff00ff"
+    }
+  ],
+
+  "sounds": [
+   
+    {
+      "id": "explosion",
+      "file": "resources/sound/explosion.wav"
+    },
+  
+    {
+      "id": "thrust",
+      "file": "resources/sound/thrust.wav"
+    },
+    {
+      "id": "fire",
+      "file": "resources/sound/fire.wav"
+    }
+  ],
+
+  "musics" : [
+    
+  ]
+
+}

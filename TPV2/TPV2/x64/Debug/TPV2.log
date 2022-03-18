@@ -1,0 +1,47 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(477,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  DeAcceleration.cpp
+  DisableOnExit.cpp
+  Follow.cpp
+  FramedImage.cpp
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\FramedImage.cpp(16,35): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\FramedImage.cpp(46,36): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  GameCtrl.cpp
+  Generations.cpp
+  Gun.cpp
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Gun.cpp(17,35): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Gun.cpp(49,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Gun.cpp(49,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Gun.cpp(53,38): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  Health.cpp
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Health.cpp(25,20): warning C4018: '<': no coinciden signed/unsigned
+  Image.cpp
+  FighterControl.cpp
+  ShowAtOpposideSide.cpp
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\ShowAtOpposideSide.cpp(25,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\ShowAtOpposideSide.cpp(28,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  State.cpp
+  StopOnBorders.cpp
+  Manager.cpp
+  AsteroidsManager.cpp
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(45,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(45,35): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(51,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(51,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(139,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(140,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Game.cpp
+  JSON.cpp
+  JSONValue.cpp
+  json_demo.cpp
+  main.cpp
+  Generando código...
+  Compilando...
+  RandomNumberGenerator.cpp
+  SDLUtils.cpp
+  sdlutils_demo.cpp
+  SoundEffect.cpp
+  Texture.cpp
+  Collisions.cpp
+  Vector2D.cpp
+  Generando código...
+  TPV2.vcxproj -> C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\bin\TPV2Debug.exe
