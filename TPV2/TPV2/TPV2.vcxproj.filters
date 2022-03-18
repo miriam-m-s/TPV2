@@ -120,18 +120,6 @@
     <ClInclude Include="src\components\Transform.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="src\ecs\Component.h">
-      <Filter>Header Files\ecs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ecs\ecs.h">
-      <Filter>Header Files\ecs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ecs\ecs_defs_example.h">
-      <Filter>Header Files\ecs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ecs\Entity.h">
-      <Filter>Header Files\ecs</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\DeAcceleration.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
@@ -167,6 +155,30 @@
     </ClInclude>
     <ClInclude Include="src\components\FighterControl.h">
       <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\Component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\ecs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\ecs_defs_example.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\Manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\messages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\messages_defs_example.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\System.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -215,9 +227,6 @@
     <ClCompile Include="src\components\StopOnBorders.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
-    <ClCompile Include="src\ecs\Manager.cpp">
-      <Filter>Source Files\ecs</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\DeAcceleration.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
@@ -251,6 +260,9 @@
     <ClCompile Include="src\components\FighterControl.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
+    <ClCompile Include="src\ecs\Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\config\asteroid.resources.json" />
@@ -258,6 +270,7 @@
     <None Include="resources\.DS_Store" />
     <None Include="resources\images\.DS_Store" />
     <None Include="resources\video\.DS_Store" />
+    <None Include="src\ecs\RAEDME.md" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\sound\explosion.wav">

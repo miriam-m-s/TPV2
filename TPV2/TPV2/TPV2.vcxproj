@@ -37,6 +37,10 @@
     <ClInclude Include="src\ecs\ecs.h" />
     <ClInclude Include="src\ecs\ecs_defs_example.h" />
     <ClInclude Include="src\ecs\Entity.h" />
+    <ClInclude Include="src\ecs\Manager.h" />
+    <ClInclude Include="src\ecs\messages.h" />
+    <ClInclude Include="src\ecs\messages_defs_example.h" />
+    <ClInclude Include="src\ecs\System.h" />
     <ClInclude Include="src\game\AsteroidsManager.h" />
     <ClInclude Include="src\game\ecs_defs.h" />
     <ClInclude Include="src\game\Game.h" />
@@ -94,6 +98,7 @@
     <None Include="resources\images\.DS_Store" />
     <None Include="resources\sound\.DS_Store" />
     <None Include="resources\video\.DS_Store" />
+    <None Include="src\ecs\RAEDME.md" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\sound\explosion.wav" />
