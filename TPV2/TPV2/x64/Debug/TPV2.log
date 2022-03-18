@@ -3,32 +3,32 @@
   DisableOnExit.cpp
   Follow.cpp
   FramedImage.cpp
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\FramedImage.cpp(16,35): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\FramedImage.cpp(46,36): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\FramedImage.cpp(16,35): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\FramedImage.cpp(46,36): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
   GameCtrl.cpp
   Generations.cpp
   Gun.cpp
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Gun.cpp(17,35): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Gun.cpp(49,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Gun.cpp(49,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Gun.cpp(53,38): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\Gun.cpp(17,35): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\Gun.cpp(49,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\Gun.cpp(49,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\Gun.cpp(53,38): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
   Health.cpp
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\Health.cpp(25,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\Health.cpp(25,20): warning C4018: '<': no coinciden signed/unsigned
   Image.cpp
   FighterControl.cpp
   ShowAtOpposideSide.cpp
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\ShowAtOpposideSide.cpp(25,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\components\ShowAtOpposideSide.cpp(28,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\ShowAtOpposideSide.cpp(25,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\ShowAtOpposideSide.cpp(28,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   State.cpp
   StopOnBorders.cpp
   Manager.cpp
   AsteroidsManager.cpp
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(45,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(45,35): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(51,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(51,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(139,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\AsteroidsManager.cpp(140,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\game\AsteroidsManager.cpp(45,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\game\AsteroidsManager.cpp(45,35): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\game\AsteroidsManager.cpp(51,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\game\AsteroidsManager.cpp(51,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\game\AsteroidsManager.cpp(139,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\game\AsteroidsManager.cpp(140,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Game.cpp
   JSON.cpp
   JSONValue.cpp
@@ -44,4 +44,4 @@ C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\TPV2\src\game\
   Collisions.cpp
   Vector2D.cpp
   Generando código...
-  TPV2.vcxproj -> C:\Users\miria\Desktop\segundo\2ºcuatri\tpv2\PRACT1ASTEROID\TPV2\bin\TPV2Debug.exe
+  TPV2.vcxproj -> C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\bin\TPV2Debug.exe
