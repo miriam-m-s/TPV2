@@ -2,8 +2,7 @@
 
 #pragma once
 #include "../ecs/Component.h"
-
-class Transform;
+#include <SDL_scancode.h>
 
 class FighterControl: public ecs::Component {
 public:
@@ -11,13 +10,28 @@ public:
 
 	__CMPID_DECL__(ecs::_FIGHTERCTRL)
 
-		FighterControl();
-	virtual ~FighterControl();
-	void initComponent() override;
-	void update() override;
 
-private:
-	 
-	Transform *tr_;
+	FighterControl() :
+		up_(SDL_SCANCODE_UP), //
+		right_(SDL_SCANCODE_RIGHT), //
+		left_(SDL_SCANCODE_LEFT), //
+		speed_(5.0f) //
+	{
+	}
+
+	inline void setKeys(SDL_Scancode up, SDL_Scancode right, SDL_Scancode left) {
+		up_ = up;
+		right_ = right;
+		left_ = left;
+	}
+
+	inline void setSpeed(float speed) {
+		speed_ = speed;
+	}
+
+	SDL_Scancode up_;
+	SDL_Scancode right_;
+	SDL_Scancode left_;
+	float speed_;
 };
 

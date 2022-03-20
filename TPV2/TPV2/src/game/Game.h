@@ -8,6 +8,9 @@ namespace ecs {
 class Manager;
 }
 
+class FighterSystem;
+class RenderSystem;
+
 class Game {
 public:
 	Game();
@@ -18,5 +21,7 @@ private:
 	void checkCollisions();
 	ecs::Manager *mngr_;
 	AsteroidsManager* asteroidmanager;
+	FighterSystem* fighterSystem_;
+	RenderSystem* rendersys_;
 };
 

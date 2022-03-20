@@ -2,13 +2,16 @@
 
 #include "../ecs/System.h"
 
+class Transform;
+class Entity;
+
 class FighterSystem : public ecs::System {
 public:
 
 	__SYSID_DECL__(ecs::_sys_FIGHTER);
 
 	// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
-	void recieve(const Message& m) override;
+	void recieve(const Message& m) override {};
 	// Crear la entidad del caza, añadir sus componentes, asociarla con un handler
 	// correspondiente, etc.
 	void initSystem() override;
@@ -19,12 +22,17 @@ private:
 	// Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
 	// un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
 	// hace falta desactivar la entidad (no dibujarla si el juego está parado).
-	void onCollision_FighterAsteroid();
+	void onCollision_FighterAsteroid() {};
 	// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
-	void onRoundOver();
+	void onRoundOver() {};
 	// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.
-	void onRoundStart();
+	void onRoundStart() {};
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
+
+	void moveFighter(ecs::Entity* fighter);
+	void desaccelarateFighter(ecs::Entity* fighter);
 	bool active_;
+
+	Transform * fighter_tr;
 };

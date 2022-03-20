@@ -4,20 +4,20 @@
 #pragma once
 #include "../ecs/Component.h"
 
-class Transform;
 
-class DeAcceleration : public ecs::Component {
+struct DeAcceleration : public ecs::Component {
 public:
 
 	__CMPID_DECL__(ecs::_DEACCELERATION)
 
-		DeAcceleration();
-	virtual ~DeAcceleration();
-	void initComponent() override;
-	void update() override;
+		DeAcceleration(): desa_(0.995f){
+		};
+	virtual ~DeAcceleration(){};
 
-private:
+    inline void setDesaceleration(float des){
+		desa_=des;
+	}
 	float  desa_;
-	Transform* tr_;
+	
 };
 

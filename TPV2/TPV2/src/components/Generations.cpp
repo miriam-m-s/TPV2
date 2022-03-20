@@ -1,24 +1,24 @@
-#include "Generations.h"
-#include "../sdlutils/SDLUtils.h"
+// #include "Generations.h"
+// #include "../sdlutils/SDLUtils.h"
 
-Generations::Generations(int g):numgenerations(g)
-{
+// Generations::Generations(int g):numgenerations(g)
+// {
 	
-}
+// }
 
-int Generations::getnumgenerations()
-{
-	return numgenerations;
-}
+// int Generations::getnumgenerations()
+// {
+// 	return numgenerations;
+// }
 
-void Generations::changenumgenerations(int s)
-{
-	numgenerations = s;
-}
+// void Generations::changenumgenerations(int s)
+// {
+// 	numgenerations = s;
+// }
 
-void Generations::restagenerations()
-{
-	numgenerations--;
-}
+// void Generations::restagenerations()
+// {
+// 	numgenerations--;
+// }
 
 

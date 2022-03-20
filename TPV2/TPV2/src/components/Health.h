@@ -1,37 +1,37 @@
 
-#pragma once
+// #pragma once
 
-#include "../ecs/Component.h"
+// #include "../ecs/Component.h"
 
-class Health : public ecs::Component {
-public:
+// class Health : public ecs::Component {
+// public:
 
-	__CMPID_DECL__(ecs::_HEALTHCTRL)
+// 	__CMPID_DECL__(ecs::_HEALTHCTRL)
 
-		Health();
-	virtual ~Health();
+// 		Health();
+// 	virtual ~Health();
 
-	inline void RestaVidas() {
-		vidas_--;
-	}
-	inline void ResetVidas() {
-		vidas_=3;
-	}
-	int cuantasvidas() {
-		return vidas_;
-	}
+// 	inline void RestaVidas() {
+// 		vidas_--;
+// 	}
+// 	inline void ResetVidas() {
+// 		vidas_=3;
+// 	}
+// 	int cuantasvidas() {
+// 		return vidas_;
+// 	}
 	
 
 	
 
-	void render() override;
+// 	void render() override;
 
-private:
+// private:
 
 
-	unsigned int vidas_;
-	unsigned int score_;
-	unsigned int starsLimit_;
-};
+// 	unsigned int vidas_;
+// 	unsigned int score_;
+// 	unsigned int starsLimit_;
+// };
 
 

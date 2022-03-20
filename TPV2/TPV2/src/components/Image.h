@@ -3,11 +3,9 @@
 #pragma once
 #include "../ecs/Component.h"
 
-class Transform;
 class Texture;
 
-class Image: public ecs::Component {
-public:
+struct Image : ecs::Component {
 
 	// This line expands to the following (see the defintion of
 	// __CMPID_DECL__ en ecs.h):
@@ -16,19 +14,15 @@ public:
 	//
 	__CMPID_DECL__(ecs::_IMAGE)
 
-	Image();
-	Image(Texture *tex);
-	virtual ~Image();
-
-	void setTexture(Texture *tex) {
-		tex_ = tex;
+		Image() :
+		tex_(nullptr) {
+	}
+	Image(Texture* tex) :
+		tex_(tex) {
+	}
+	virtual ~Image() {
 	}
 
-	void initComponent() override;
-	void render() override;
-
-private:
-	Transform *tr_;
-	Texture *tex_;
+	Texture* tex_;
 };
 

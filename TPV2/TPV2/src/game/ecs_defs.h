@@ -33,7 +33,7 @@ _ASTEROID_GRP
 // Handlers list - must have at least one element
 //
 #define _HDLRS_LIST_ \
-    _hdlr_CAZA, \
+    _hdlr_FIGHTER, \
 	_hdlr_GAMEINFO
 
 #define _SYSLIST \
