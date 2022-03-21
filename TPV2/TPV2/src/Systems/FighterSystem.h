@@ -29,7 +29,7 @@ private:
 	void onRoundStart() {};
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
-
+	void showAtOpposideSide();
 	void moveFighter(ecs::Entity* fighter);
 	void desaccelarateFighter(ecs::Entity* fighter);
 	bool active_;

@@ -10,6 +10,7 @@ class Manager;
 
 class FighterSystem;
 class RenderSystem;
+class BulletsSystem;
 
 class Game {
 public:
@@ -23,5 +24,6 @@ private:
 	AsteroidsManager* asteroidmanager;
 	FighterSystem* fighterSystem_;
 	RenderSystem* rendersys_;
+	BulletsSystem* bulletSys_;
 };
 

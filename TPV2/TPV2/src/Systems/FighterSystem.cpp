@@ -6,6 +6,7 @@
 #include "../components/DeAcceleration.h"
 #include "../components/Image.h"
 #include "../components/FighterControl.h"
+#include "../components/Gun.h"
 
 #include "../sdlutils/SDLUtils.h"
 #include "../sdlutils/InputHandler.h"
@@ -26,10 +27,10 @@ void FighterSystem::initSystem()
 
 	fighter_tr->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
 
-	auto fighterImg = mngr_->addComponent<Image>(fighter, &sdlutils().images().at("fighter"));
-
-	auto fighterCtrl = mngr_->addComponent<FighterControl>(fighter);
-    auto fighterDeAcc = mngr_->addComponent<DeAcceleration>(fighter);
+	mngr_->addComponent<Image>(fighter, &sdlutils().images().at("fighter"));
+	mngr_->addComponent<FighterControl>(fighter);
+    mngr_->addComponent<DeAcceleration>(fighter);
+    mngr_->addComponent<Gun>(fighter);
 
 }
 
@@ -42,7 +43,10 @@ void FighterSystem::update()
 
 	desaccelarateFighter(fighter);
 
+	showAtOpposideSide();
+
 	fighter_tr->move();
+
 }
 
 void FighterSystem::desaccelarateFighter(ecs::Entity *fighter){
@@ -54,6 +58,25 @@ void FighterSystem::desaccelarateFighter(ecs::Entity *fighter){
 
  	if (fighter_tr->vel_.magnitude() < 0.05f) {
 		fighter_tr->vel_.set(0.0f, 0.0f);
+ 	}
+}
+
+void FighterSystem::showAtOpposideSide()
+{
+	auto& pos = fighter_tr->pos_;
+ 	auto& vel = fighter_tr->vel_;
+
+ 	if (pos.getX() < -fighter_tr->width_) {
+ 		pos.set(sdlutils().width(), pos.getY());
+ 	}
+ 	else if (pos.getY() <= -fighter_tr->height_) {
+ 		pos.set(pos.getX(), sdlutils().height() );
+ 	}
+ 	else if (pos.getX() > sdlutils().width()) {
+ 		pos.set(-fighter_tr->width_, pos.getY());
+ 	}
+ 	else if (pos.getY() >= sdlutils().height()) {
+ 		pos.set(pos.getX(), -fighter_tr->height_);
  	}
 }
 

@@ -4,6 +4,7 @@
 
 #include "../Systems/FighterSystem.h"
 #include "../Systems/RenderSystem.h"
+#include "../Systems/BulletsSystem.h"
 #include "../ecs/Entity.h"
 #include "../ecs/Manager.h"
 #include "AsteroidsManager.h"
@@ -35,6 +36,8 @@ void Game::init() {
 	
 	fighterSystem_ = mngr_->addSystem<FighterSystem>();
     rendersys_=mngr_->addSystem<RenderSystem>();
+	bulletSys_ = mngr_->addSystem<BulletsSystem>();
+
 	//auto caza = mngr_->addEntity();
 	//mngr_->setHandler(ecs::_hdlr_CAZA, caza);
 	//auto tr = caza->addComponet<Transform>();

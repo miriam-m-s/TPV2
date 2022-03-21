@@ -28,7 +28,7 @@ _STATE
 #define _GRPS_LIST_ \
 	_grp_STARS,\
 	_grp_BALAS,\
-_ASTEROID_GRP
+	_ASTEROID_GRP
 
 // Handlers list - must have at least one element
 //
@@ -38,7 +38,7 @@ _ASTEROID_GRP
 
 #define _SYSLIST \
     _sys_FIGHTER, \
-    _sys_PADDLES, \
+    _sys_BULLETS, \
     _sys_RENDER, \
     _sys_GAMECTRL, \
     _sys_COLLISIONS
