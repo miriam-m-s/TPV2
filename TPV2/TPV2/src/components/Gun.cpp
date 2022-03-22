@@ -45,7 +45,8 @@
 // 				auto pos = tr_->getPos();
 // 				auto& vel = tr_->getVel();
 // 				auto bPos = tr_->getPos() + Vector2D(tr_->getWidth() / 2.0f, tr_->getHeight() / 2.0f) - Vector2D(0.0f, tr_->getHeight() / 2.0f + 5.0f + 12.0f).rotate(rot) - Vector2D(2.0f, 10.0f);
-// 				auto bVel = Vector2D(0.0f, -1.0f).rotate(rot) * (vel.magnitude() + 5.0f);
+// 				
+//				auto bVel = Vector2D(0.0f, -1.0f).rotate(rot) * (vel.magnitude() + 5.0f);
 // 				trS->init(bPos, bVel, s, s, rot);
 
 // 				e->addComponet<Image>(&sdlutils().images().at("fire"));

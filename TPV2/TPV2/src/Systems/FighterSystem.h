@@ -32,7 +32,11 @@ private:
 	void showAtOpposideSide();
 	void moveFighter(ecs::Entity* fighter);
 	void desaccelarateFighter(ecs::Entity* fighter);
+	void shoot(ecs::Entity *fighter);
+
 	bool active_;
 
 	Transform * fighter_tr;
+
+	float initTime;
 };

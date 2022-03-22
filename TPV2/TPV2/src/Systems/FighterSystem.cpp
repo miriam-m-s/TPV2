@@ -1,6 +1,7 @@
 #include "FighterSystem.h"
 #include "../ecs/Entity.h"
 #include "../ecs/Manager.h"
+#include "../ecs/messages.h"
 
 #include "../components/Transform.h"
 #include "../components/DeAcceleration.h"
@@ -32,6 +33,9 @@ void FighterSystem::initSystem()
     mngr_->addComponent<DeAcceleration>(fighter);
     mngr_->addComponent<Gun>(fighter);
 
+
+	initTime = sdlutils().currRealTime();
+
 }
 
 void FighterSystem::update()
@@ -47,6 +51,7 @@ void FighterSystem::update()
 
 	fighter_tr->move();
 
+	shoot(fighter);
 }
 
 void FighterSystem::desaccelarateFighter(ecs::Entity *fighter){
@@ -59,6 +64,37 @@ void FighterSystem::desaccelarateFighter(ecs::Entity *fighter){
  	if (fighter_tr->vel_.magnitude() < 0.05f) {
 		fighter_tr->vel_.set(0.0f, 0.0f);
  	}
+}
+
+void FighterSystem::shoot(ecs::Entity* fighter)
+{
+
+	auto shoot_ = mngr_->getComponent<Gun>(fighter);
+
+	auto& ihdlr = ih();
+
+	if (ihdlr.keyDownEvent()) {
+	
+		if (ihdlr.isKeyDown(shoot_->s_) && sdlutils().currRealTime() - initTime >= shoot_->cooldown_) {
+
+			initTime = sdlutils().currRealTime();
+
+			Message m;
+
+			m.id = _m_FIGHTER_SHOOT;
+			m.fighter_shoot.height = fighter_tr->height_;
+			m.fighter_shoot.width = fighter_tr->width_;
+			m.fighter_shoot.pos = fighter_tr->pos_;
+			m.fighter_shoot.rot = fighter_tr->rot_;
+			m.fighter_shoot.vel = fighter_tr->vel_;
+
+			mngr_->send(m);
+
+		}
+
+	}
+
+	
 }
 
 void FighterSystem::showAtOpposideSide()

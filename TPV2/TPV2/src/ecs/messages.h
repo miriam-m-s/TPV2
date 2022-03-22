@@ -42,7 +42,30 @@
 #include "../game/messages_defs.h"
 #else
 #include <cstdint>
+#include "../utils/Vector2D.h"
+
+using msgId_type = uint8_t;
+
+enum msgId : msgId_type {
+	_m_FIGHTER_SHOOT
+};
+
 struct Message {
-	uint8_t id;
+
+	/*Message() {};
+	~Message() {};*/
+
+	msgId_type id;
+
+	struct
+	{
+		Vector2D pos;
+		Vector2D vel;
+		double rot;
+		double width;
+		double height;
+
+	} fighter_shoot;
+
 };
 #endif

@@ -14,6 +14,7 @@
 #include "../ecs/ecs.h"
 
 using msgId_type = uint8_t;
+
 enum msgId : msgId_type {
 	_m_STAR_EATEN, //
 	_m_CREATE_STARS

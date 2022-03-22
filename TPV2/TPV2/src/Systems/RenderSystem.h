@@ -15,6 +15,7 @@ public:
 	void update() override;
 
 private:
+	void drawBullet();
 	void drawFighter();
 };
 

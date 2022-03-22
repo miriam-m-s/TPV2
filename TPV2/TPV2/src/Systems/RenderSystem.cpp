@@ -18,6 +18,23 @@ void RenderSystem::initSystem() {
 
 void RenderSystem::update() {
 	drawFighter();
+	drawBullet();
+}
+void RenderSystem::drawBullet(){
+
+	for (auto i : mngr_->getEntities(ecs::_grp_BALAS)){
+
+		auto bulletTr = mngr_->getComponent<Transform>(i);
+		auto bulletImg = mngr_->getComponent<Image>(i);
+
+		SDL_Rect dest = build_sdlrect(bulletTr->pos_, bulletTr->width_,
+			bulletTr->height_);
+
+		assert(bulletImg->tex_ != nullptr);
+		bulletImg->tex_->render(dest, bulletTr->rot_);
+		
+	}
+
 }
 
 void RenderSystem::drawFighter() {

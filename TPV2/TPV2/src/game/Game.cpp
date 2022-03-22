@@ -87,6 +87,7 @@ void Game::start() {
 		//}
 
 		fighterSystem_->update();
+		bulletSys_->update();
 		
 		sdlutils().clearRenderer();
 		//mngr_->render();

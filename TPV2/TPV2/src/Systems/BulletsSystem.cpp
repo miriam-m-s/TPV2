@@ -2,6 +2,7 @@
 
 #include "../ecs/Entity.h"
 #include "../ecs/Manager.h"
+#include "../ecs/messages.h"
 
 #include "../components/Transform.h"
 #include "../components/Image.h"
@@ -11,14 +12,25 @@
 
 void BulletsSystem::recieve(const Message& m)
 {
-
+	switch (m.id)
+	{
+	case _m_FIGHTER_SHOOT:
+		shoot(m.fighter_shoot.pos, m.fighter_shoot.vel, m.fighter_shoot.width, m.fighter_shoot.height, m.fighter_shoot.rot);
+		active_ = true;
+		break;
+	default:
+		break;
+	}
 }
 
 void BulletsSystem::initSystem() {
+	active_ = false;
 }
 
 void BulletsSystem::update()
 {
+
+	if (!active_) return;
 
 	for (auto i : mngr_->getEntities(ecs::_grp_BALAS)){
 
@@ -33,27 +45,31 @@ void BulletsSystem::update()
 		if (bullettr_->pos_.getY() + bullettr_->height_ <= 0 || bullettr_->pos_.getY() >= sdlutils().height() - bullettr_->height_) {
 			//ent_->setAlive(false);
 		}
+
+		bullettr_->move();
 	}
 }
 
-void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height)
+void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height, double rot)
 {
 	auto bullet = mngr_->addEntity(ecs::_grp_BALAS);
 	
 	//tranform of the bullet
 	auto bullettr_ = mngr_->addComponent<Transform>(bullet);
+
 	auto s = 20;
 
-	auto rot = bullettr_->rot_;
-	auto pos = pos;
-	auto& vel = vel;
+	//vel.angle(Vector2D(0.0f,-1.0f));
 
-	auto bPos = bullettr_->pos_ + Vector2D(bullettr_->width_ / 2.0f, 
-	bullettr_->width_ / 2.0f) - Vector2D(0.0f, bullettr_->height_ / 2.0f + 5.0f + 12.0f).rotate(rot) - Vector2D(2.0f, 10.0f);
+	auto bPos = pos + Vector2D(width / 2.0f, 
+	width / 2.0f) - Vector2D(0.0f, height / 2.0f + 5.0f + 12.0f).rotate(rot) - Vector2D(2.0f, 10.0f);
 
 	auto bVel = Vector2D(0.0f, -1.0f).rotate(rot) * (vel.magnitude() + 5.0f);
 	bullettr_->init(bPos, bVel, s, s, rot);
 
 	mngr_->addComponent<Image>(bullet, &sdlutils().images().at("fire"));
+	//sound
+	sdlutils().soundEffects().at("fire").play(0, 1);
+
 	
 }

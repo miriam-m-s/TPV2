@@ -24,7 +24,7 @@
 #include "../ecs/Component.h"
 #include <SDL_scancode.h>
 
-class Gun: public ecs::Component {
+struct Gun: public ecs::Component {
 public:
 
 
