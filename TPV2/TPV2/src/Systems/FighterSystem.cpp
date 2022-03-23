@@ -36,10 +36,14 @@ void FighterSystem::initSystem()
 
 	initTime = sdlutils().currRealTime();
 
+	active_ = true;
+
 }
 
 void FighterSystem::update()
 {
+
+	if (!active_) return;
 
 	auto fighter = mngr_->getHandler(ecs::_hdlr_FIGHTER);
 
