@@ -11,6 +11,7 @@ class Manager;
 class FighterSystem;
 class RenderSystem;
 class BulletsSystem;
+class AsteroidsSystem;
 
 class Game {
 public:
@@ -21,9 +22,10 @@ public:
 private:
 	void checkCollisions();
 	ecs::Manager *mngr_;
-	AsteroidsManager* asteroidmanager;
+
 	FighterSystem* fighterSystem_;
 	RenderSystem* rendersys_;
 	BulletsSystem* bulletSys_;
+	AsteroidsSystem* asteroidSystem_;
 };
 

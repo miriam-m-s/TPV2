@@ -1,22 +1,18 @@
 // // This file is part of the course TPV2@UCM - Samir Genaim
 
-// #pragma once
-// #include "../ecs/Component.h"
+ #pragma once
+ #include "../ecs/Component.h"
 
-// class Transform;
+ struct Generations : ecs::Component {
+ public:
 
-// class Generations: public ecs::Component {
-// public:
+     __CMPID_DECL__(ecs::_GENERATIONS);
 
-// 	__CMPID_DECL__(ecs::_GENERATIONS)
+    Generations(int generations) :numgenerations(generations) {};
+    virtual ~Generations() {};
 
-// 	Generations(int g);
-// 	virtual ~Generations()=default;
-// 	int getnumgenerations();
-// 	void changenumgenerations(int s);
-// 	void restagenerations();
-// 	//void update() override;
-// private:
-// 	int numgenerations;
-// };
+    void changenumgenerations(int s) { numgenerations = s; };
+
+ 	int numgenerations;
+ };
 

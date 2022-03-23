@@ -15,6 +15,7 @@ public:
 	void update() override;
 
 private:
+	void drawAsteroids();
 	void drawBullet();
 	void drawFighter();
 };

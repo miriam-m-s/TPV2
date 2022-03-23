@@ -18,7 +18,6 @@ public:
     AsteroidsManager(ecs::Manager* mgr_);
     ~AsteroidsManager() {};
 
-
     void createAsteroids(int n);
     void createSonAsteroid(int n, int g, Vector2D transf, Vector2D vel);
     void addAsteroidFrequently();

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Systems\AsteroidsSystem.h" />
     <ClInclude Include="src\Systems\BulletsSystem.h" />
     <ClInclude Include="src\Systems\RenderSystem.h" />
     <ClInclude Include="src\components\DeAcceleration.h" />
@@ -65,6 +66,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Systems\AsteroidsSystem.cpp" />
     <ClCompile Include="src\Systems\BulletsSystem.cpp" />
     <ClCompile Include="src\Systems\RenderSystem.cpp" />
     <ClCompile Include="src\components\DeAcceleration.cpp" />

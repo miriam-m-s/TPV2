@@ -19,6 +19,7 @@ void RenderSystem::initSystem() {
 void RenderSystem::update() {
 	drawFighter();
 	drawBullet();
+	drawAsteroids();
 }
 void RenderSystem::drawBullet(){
 
@@ -35,6 +36,20 @@ void RenderSystem::drawBullet(){
 		
 	}
 
+}
+void RenderSystem::drawAsteroids() {
+	for (auto i : mngr_->getEntities(ecs::_grp_ASTEROIDS)) {
+
+		auto astTr = mngr_->getComponent<Transform>(i);
+		auto astImg = mngr_->getComponent<Image>(i);
+
+		SDL_Rect dest = build_sdlrect(astTr->pos_, astTr->width_,
+			astTr->height_);
+
+		assert(astImg->tex_ != nullptr);
+		astImg->tex_->render(dest, astTr->rot_);
+
+	}
 }
 
 void RenderSystem::drawFighter() {

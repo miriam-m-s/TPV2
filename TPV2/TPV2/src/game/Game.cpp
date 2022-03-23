@@ -5,11 +5,12 @@
 #include "../Systems/FighterSystem.h"
 #include "../Systems/RenderSystem.h"
 #include "../Systems/BulletsSystem.h"
+#include "../Systems/AsteroidsSystem.h"
+
 #include "../ecs/Entity.h"
 #include "../ecs/Manager.h"
-#include "AsteroidsManager.h"
+
 #include "../sdlutils/InputHandler.h"
-#include "../components/Health.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../utils/Vector2D.h"
 #include "../utils/Collisions.h"
@@ -18,12 +19,11 @@
 using ecs::Manager;
 
 Game::Game() :
-		mngr_(nullptr), asteroidmanager(nullptr),fighterSystem_(nullptr),rendersys_(nullptr){
+		mngr_(nullptr),fighterSystem_(nullptr),rendersys_(nullptr),bulletSys_(nullptr),asteroidSystem_(nullptr){
 }
 
 Game::~Game() {
 	delete mngr_;
-	delete asteroidmanager;
 }
 
 void Game::init() {
@@ -37,6 +37,7 @@ void Game::init() {
 	fighterSystem_ = mngr_->addSystem<FighterSystem>();
     rendersys_=mngr_->addSystem<RenderSystem>();
 	bulletSys_ = mngr_->addSystem<BulletsSystem>();
+	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
 
 	//auto caza = mngr_->addEntity();
 	//mngr_->setHandler(ecs::_hdlr_CAZA, caza);
@@ -88,6 +89,7 @@ void Game::start() {
 
 		fighterSystem_->update();
 		bulletSys_->update();
+		asteroidSystem_->update();
 		
 		sdlutils().clearRenderer();
 		//mngr_->render();
