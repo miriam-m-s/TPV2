@@ -36,6 +36,7 @@ private:
 	void onCollision(ecs::Entity* a);
 	int getNumActualAst();
 	void showAtOpposideside(ecs::Entity* s);
+	void follow(Transform *asteroidtr_);
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
 

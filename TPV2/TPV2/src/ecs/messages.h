@@ -47,7 +47,8 @@
 using msgId_type = uint8_t;
 
 enum msgId : msgId_type {
-	_m_FIGHTER_SHOOT
+	_m_FIGHTER_SHOOT,
+	_m_COLLISION_BULLETASTEROID
 };
 
 struct Message {

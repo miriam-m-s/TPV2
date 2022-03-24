@@ -39,13 +39,11 @@ void BulletsSystem::update()
 		//limites de X
 		if (bullettr_->pos_.getX() + bullettr_->width_ <= 0 || bullettr_->pos_.getX() >= sdlutils().width()- bullettr_->width_) {
 			//i->setAlive(false);
-			active_ = false;
 		}
 
 		//limites de Y
 		if (bullettr_->pos_.getY() + bullettr_->height_ <= 0 || bullettr_->pos_.getY() >= sdlutils().height() - bullettr_->height_) {
 			//ent_->setAlive(false);
-			active_ = false;
 		}
 
 		bullettr_->move();

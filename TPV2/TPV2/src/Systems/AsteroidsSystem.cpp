@@ -4,8 +4,7 @@
 #include "../ecs/messages.h"
 
 #include "../components/Transform.h"
-#include "../components/Image.h"
-#include "../components/ShowAtOpposideSide.h"
+#include "../components/FramedImage.h"
 #include "../components/Generations.h"
 #include "../components/Follow.h"
 
@@ -28,14 +27,11 @@ void AsteroidsSystem::update()
         auto asteroidstr_ = mngr_->getComponent<Transform>(i);
 
         if(mngr_->getComponent<Follow>(i) != nullptr){
-
+            follow(asteroidstr_);
         }
 
-        else{
-
-        }
-
-       asteroidstr_->move();
+        asteroidstr_->move();
+        showAtOpposideside(i);
     }
 	
 }
@@ -62,6 +58,19 @@ void AsteroidsSystem::showAtOpposideside(ecs::Entity* s) {
     else if (pos.getY() >= sdlutils().height()) {
         pos.set(pos.getX(), -aster_->height_);
     }
+}
+
+void AsteroidsSystem::follow(Transform* asteroidtr_)
+{
+    auto fighter = mngr_->getHandler(ecs::_hdlr_FIGHTER);
+
+    auto fightertr_ = mngr_->getComponent<Transform>(fighter);
+    
+    auto& v = asteroidtr_->vel_;
+    auto p = asteroidtr_->pos_;
+    auto q = fightertr_->pos_;
+
+    v = v.rotate(v.angle(q - p) > 0 ? 1.0f : -1.0f);
 }
 
 void AsteroidsSystem::createAsteroids(int n)
@@ -112,12 +121,12 @@ void AsteroidsSystem::createAsteroids(int n)
 
             tr->init(p, v, s, s, 0.0f);
 
-            mngr_->addComponent<Image>(e, &sdlutils().images().at("asteroid"));
+            mngr_->addComponent<FramedImage>(e, &sdlutils().images().at("asteroid"), 5, 6);
             mngr_->addComponent<Generations>(e, g);
 
             if (sdlutils().rand().nextInt(0, 10) < 3) {
-                //mngr_->addComponet<Follow>(mngr->getHandler(ecs::_hdlr_CAZA));
-                mngr_->addComponent <Image>(e, &sdlutils().images().at("asteroidgold"));
+                mngr_->addComponent<Follow>(e);
+                mngr_->addComponent <FramedImage>(e, &sdlutils().images().at("asteroidgold"),5,6);
             }
         }
         numOfAsteroids_ += n;
@@ -136,13 +145,13 @@ void AsteroidsSystem::createSonAsteroid(int n, int g, Vector2D transf, Vector2D 
         
                     tr->init(transf, vel, s, s, 0.0f);
         
-                   mngr_->addComponent < Image >(e,&sdlutils().images().at("asteroid"));
+                   mngr_->addComponent <FramedImage>(e,&sdlutils().images().at("asteroid"),5,6);
                    // e->addComponet<ShowAtOpposideSide>();
                    mngr_->addComponent<Generations>(e, g);
         
                     if (sdlutils().rand().nextInt(0, 10) < 3) {
-                       // e->addComponet<Follow>(mngr->getHandler(ecs::_hdlr_CAZA));
-                       mngr_->addComponent < Image >(e,&sdlutils().images().at("asteroidgold"));
+                       mngr_->addComponent<Follow>(e);
+                       mngr_->addComponent <FramedImage>(e,&sdlutils().images().at("asteroidgold"),5,6);
                     }
         
         

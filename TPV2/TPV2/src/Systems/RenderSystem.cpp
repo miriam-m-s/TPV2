@@ -1,6 +1,7 @@
 #include "RenderSystem.h"
 
 #include <SDL_rect.h>
+#include "../components/FramedImage.h"
 #include "../components/Image.h"
 #include "../components/Transform.h"
 #include "../ecs/Manager.h"
@@ -41,13 +42,15 @@ void RenderSystem::drawAsteroids() {
 	for (auto i : mngr_->getEntities(ecs::_grp_ASTEROIDS)) {
 
 		auto astTr = mngr_->getComponent<Transform>(i);
-		auto astImg = mngr_->getComponent<Image>(i);
+		auto astImg = mngr_->getComponent<FramedImage>(i);
+
+		astImg->draw();
 
 		SDL_Rect dest = build_sdlrect(astTr->pos_, astTr->width_,
 			astTr->height_);
 
 		assert(astImg->tex_ != nullptr);
-		astImg->tex_->render(dest, astTr->rot_);
+		astImg->tex_->render(astImg->m_clip, dest, astTr->rot_);
 
 	}
 }
