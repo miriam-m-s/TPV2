@@ -11,8 +11,6 @@
     Generations(int generations) :numgenerations(generations) {};
     virtual ~Generations() {};
 
-    void changenumgenerations(int s) { numgenerations = s; };
-
  	int numgenerations;
  };
 

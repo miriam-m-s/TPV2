@@ -6,6 +6,7 @@
 #include "../Systems/RenderSystem.h"
 #include "../Systems/BulletsSystem.h"
 #include "../Systems/AsteroidsSystem.h"
+#include "../Systems/CollisionSystem.h"
 
 #include "../ecs/Entity.h"
 #include "../ecs/Manager.h"
@@ -19,7 +20,7 @@
 using ecs::Manager;
 
 Game::Game() :
-		mngr_(nullptr),fighterSystem_(nullptr),rendersys_(nullptr),bulletSys_(nullptr),asteroidSystem_(nullptr){
+		mngr_(nullptr),fighterSystem_(nullptr),rendersys_(nullptr),bulletSys_(nullptr),asteroidSystem_(nullptr), collisionSystem_(nullptr){
 }
 
 Game::~Game() {
@@ -38,6 +39,7 @@ void Game::init() {
     rendersys_=mngr_->addSystem<RenderSystem>();
 	bulletSys_ = mngr_->addSystem<BulletsSystem>();
 	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
+	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
 
 	//auto caza = mngr_->addEntity();
 	//mngr_->setHandler(ecs::_hdlr_CAZA, caza);
@@ -90,7 +92,8 @@ void Game::start() {
 		fighterSystem_->update();
 		bulletSys_->update();
 		asteroidSystem_->update();
-		
+		collisionSystem_->update();
+
 		sdlutils().clearRenderer();
 		//mngr_->render();
 		rendersys_->update();
@@ -103,85 +106,3 @@ void Game::start() {
 	}
 
 }
-
-//void Game::checkCollisions() {
-//
-//
-//	//caza tranform and health
-//	auto pTR = mngr_->getHandler(ecs::_hdlr_CAZA)->getComponent<Transform>();
-//	auto cazavida = mngr_->getHandler(ecs::_hdlr_CAZA)->getComponent<Health>();
-//	//asteroid group
-//	auto &asteroids = mngr_->getEntities(ecs::_ASTEROID_GRP);
-//	//bullets group
-//	auto& bullets = mngr_->getEntities(ecs::_grp_BALAS);
-//
-//	//------------------COLLISION WITH FIGHTER AND ASTEROIDS------------------
-//
-//	auto n = asteroids.size();
-//	for (auto i = 0u; i < n; i++) {
-//		auto e = asteroids[i];
-//		if (e->isAlive()) { // if the asteroid is active (it might have died in this frame)
-//			//cacheamos el tranform del asteroide
-//			auto eTR = e->getComponent<Transform>();
-//			//Collision with the fighter and the asteroid
-//			if (Collisions::collidesWithRotation(pTR->getPos(), pTR->getWidth(),
-//				pTR->getHeight(), pTR->getRot(),
-//				eTR->getPos(), eTR->getWidth(), eTR->getHeight(), eTR->getRot())) {
-//				//destroy all asteroids
-//				asteroidmanager->destroyAllAsteroids();
-//				//restar vida al caza
-//				cazavida->RestaVidas();
-//
-//				//poner caza centro de la pantalla
-//				auto x = (sdlutils().width() - pTR->getWidth()) / 2.0f;
-//				auto y = (sdlutils().height() - pTR->getHeight()) / 2.0f;
-//				pTR->init(Vector2D(x, y), Vector2D(), pTR->getWidth(), pTR->getHeight(), 0.0f);
-//				//Change of state
-//				auto gmanager = mngr_->getHandler(ecs::_hdlr_GAMEINFO)->getComponent<State>();
-//				if (cazavida->cuantasvidas() > 0) 				
-//					gmanager->setState(State::PAUSED);
-//				else gmanager->setState(State::GAMEOVER);
-//				//sound
-//				sdlutils().soundEffects().at("explosion").play(0, 1);
-//			}
-//		}
-//	}
-//	//------------------COLLISION WITH BULLETS AND ASTEROIDS------------------
-//	auto num = bullets.size();
-//	for (auto j = 0u; j < num; j++) {
-//		auto b = bullets[j];
-//		if (b->isAlive()) {
-//			for (auto i = 0u; i < n; i++) {
-//				auto e = asteroids[i];
-//				if (e->isAlive()) { // if the asteroid is active (it might have died in this frame)
-//					//asteroid tranform
-//					auto eTR = e->getComponent<Transform>();
-//					//bullet tranform
-//					auto bTR = b->getComponent<Transform>();
-//
-//					//Collision with bullet and asteroids
-//					if (Collisions::collidesWithRotation(eTR->getPos(), eTR->getWidth(),
-//						eTR->getHeight(), eTR->getRot(),//
-//						bTR->getPos(), bTR->getWidth(), bTR->getHeight(), bTR->getRot())) {
-//						b->setAlive(false);
-//						asteroidmanager->onCollision(e);
-//						//if there are no asteroids the fighter wins
-//						if (asteroidmanager->getNumActualAst() == 0) {
-//							auto gmanager = mngr_->getHandler(ecs::_hdlr_GAMEINFO)->getComponent<State>();
-//							//poner caza centro de la pantalla
-//							auto x = (sdlutils().width() - pTR->getWidth()) / 2.0f;
-//							auto y = (sdlutils().height() - pTR->getHeight()) / 2.0f;
-//							pTR->init(Vector2D(x, y), Vector2D(), pTR->getWidth(), pTR->getHeight(), 0.0f);
-//							gmanager->setState(State::GAMEOVER);
-//						}
-//						//sound
-//						sdlutils().soundEffects().at("explosion").play(0, 1);
-//						
-//					}
-//				}
-//			}
-//		}
-//		
-//	}
-//	
-//}

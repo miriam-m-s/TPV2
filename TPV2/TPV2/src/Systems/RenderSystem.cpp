@@ -1,10 +1,14 @@
 #include "RenderSystem.h"
 
 #include <SDL_rect.h>
+
 #include "../components/FramedImage.h"
 #include "../components/Image.h"
 #include "../components/Transform.h"
+#include "../components/Health.h"
+
 #include "../ecs/Manager.h"
+
 #include "../sdlutils/SDLUtils.h"
 #include "../sdlutils/Texture.h"
 
@@ -24,7 +28,7 @@ void RenderSystem::update() {
 }
 void RenderSystem::drawBullet(){
 
-	for (auto i : mngr_->getEntities(ecs::_grp_BALAS)){
+	for (auto i : mngr_->getEntities(ecs::_grp_BULLETS)){
 
 		auto bulletTr = mngr_->getComponent<Transform>(i);
 		auto bulletImg = mngr_->getComponent<Image>(i);
@@ -38,6 +42,7 @@ void RenderSystem::drawBullet(){
 	}
 
 }
+
 void RenderSystem::drawAsteroids() {
 	for (auto i : mngr_->getEntities(ecs::_grp_ASTEROIDS)) {
 
@@ -60,6 +65,7 @@ void RenderSystem::drawFighter() {
 	auto fighter = mngr_->getHandler(ecs::_hdlr_FIGHTER);
 	auto fighterTr = mngr_->getComponent<Transform>(fighter);
 	auto fighterImg = mngr_->getComponent<Image>(fighter);
+	auto fighterHp = mngr_->getComponent<Health>(fighter);
 
 	SDL_Rect dest = build_sdlrect(fighterTr->pos_, fighterTr->width_,
 		fighterTr->height_);
@@ -67,4 +73,11 @@ void RenderSystem::drawFighter() {
 	assert(fighterImg->tex_ != nullptr);
 	fighterImg->tex_->render(dest, fighterTr->rot_);
 
+	dest = build_sdlrect(
+		20.0f / 2.0f,10.0f,30,30);
+
+	for (int i = 0; i < fighterHp->vidas_; i++) {
+		sdlutils().images().at("heart").render(dest);
+		dest.x += 60;
+	}
 }

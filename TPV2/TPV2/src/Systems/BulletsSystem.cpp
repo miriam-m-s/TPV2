@@ -32,7 +32,7 @@ void BulletsSystem::update()
 
 	if (!active_) return;
 
-	for (auto i : mngr_->getEntities(ecs::_grp_BALAS)){
+	for (auto i : mngr_->getEntities(ecs::_grp_BULLETS)){
 
 		auto bullettr_ = mngr_->getComponent<Transform>(i);
 
@@ -52,7 +52,7 @@ void BulletsSystem::update()
 
 void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height, double rot)
 {
-	auto bullet = mngr_->addEntity(ecs::_grp_BALAS);
+	auto bullet = mngr_->addEntity(ecs::_grp_BULLETS);
 	
 	//tranform of the bullet
 	auto bullettr_ = mngr_->addComponent<Transform>(bullet);

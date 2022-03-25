@@ -8,6 +8,7 @@
 #include "../components/Image.h"
 #include "../components/FighterControl.h"
 #include "../components/Gun.h"
+#include "../components/Health.h"
 
 #include "../sdlutils/SDLUtils.h"
 #include "../sdlutils/InputHandler.h"
@@ -32,7 +33,7 @@ void FighterSystem::initSystem()
 	mngr_->addComponent<FighterControl>(fighter);
     mngr_->addComponent<DeAcceleration>(fighter);
     mngr_->addComponent<Gun>(fighter);
-
+	mngr_->addComponent<Health>(fighter);
 
 	initTime = sdlutils().currRealTime();
 

@@ -44,17 +44,17 @@
 #include <cstdint>
 #include "../utils/Vector2D.h"
 
+#include "../ecs/Entity.h"
+
 using msgId_type = uint8_t;
 
 enum msgId : msgId_type {
 	_m_FIGHTER_SHOOT,
-	_m_COLLISION_BULLETASTEROID
+	_m_COLLISION_BULLET,
+	_m_COLLISION_FIGHTER
 };
 
 struct Message {
-
-	/*Message() {};
-	~Message() {};*/
 
 	msgId_type id;
 
@@ -67,6 +67,10 @@ struct Message {
 		double height;
 
 	} fighter_shoot;
+
+	struct {
+		ecs::Entity *ast;
+	} bullet_collision;
 
 };
 #endif

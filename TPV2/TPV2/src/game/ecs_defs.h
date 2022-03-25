@@ -26,8 +26,7 @@ _STATE
 // Groups list - must have at least one element
 //
 #define _GRPS_LIST_ \
-	_grp_STARS,\
-	_grp_BALAS,\
+	_grp_BULLETS,\
 	_grp_ASTEROIDS
 
 // Handlers list - must have at least one element

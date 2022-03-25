@@ -3,7 +3,7 @@
 #pragma once
 
 #include <vector>
-#include "AsteroidsManager.h"
+
 namespace ecs {
 class Manager;
 }
@@ -12,6 +12,7 @@ class FighterSystem;
 class RenderSystem;
 class BulletsSystem;
 class AsteroidsSystem;
+class CollisionSystem;
 
 class Game {
 public:
@@ -20,12 +21,12 @@ public:
 	void init();
 	void start();
 private:
-	void checkCollisions();
 	ecs::Manager *mngr_;
 
 	FighterSystem* fighterSystem_;
 	RenderSystem* rendersys_;
 	BulletsSystem* bulletSys_;
 	AsteroidsSystem* asteroidSystem_;
+	CollisionSystem* collisionSystem_;
 };
 
