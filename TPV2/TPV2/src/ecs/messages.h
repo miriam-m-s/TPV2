@@ -48,7 +48,8 @@ using msgId_type = uint8_t;
 
 enum msgId : msgId_type {
 	_m_FIGHTER_SHOOT,
-	_m_COLLISION_BULLETASTEROID
+	_m_COLLISION_BULLETASTEROID,
+	_m_COLLISIOM_FIGHTERASTEROID
 };
 
 struct Message {
@@ -67,6 +68,11 @@ struct Message {
 		double height;
 
 	} fighter_shoot;
+	struct
+	{
+		ecs::Entity* ent;
+
+	} divide_asteroid;
 
 };
 #endif

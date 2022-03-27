@@ -37,7 +37,18 @@ void AsteroidsSystem::update()
 }
 
 void AsteroidsSystem::recieve(const Message& m) {
-    
+    switch (m.id)
+    {
+    case _m_COLLISIOM_FIGHTERASTEROID:
+        destroyAllAsteroids();
+      
+        break;
+    case _m_COLLISION_BULLETASTEROID:
+        onCollision(m.divide_asteroid.ent);
+        break;
+    default:
+        break;
+    }
 }
 
 void AsteroidsSystem::showAtOpposideside(ecs::Entity* s) {
@@ -174,7 +185,7 @@ void AsteroidsSystem::destroyAllAsteroids()
     auto asteroids = mngr_->getEntities(ecs::_grp_ASTEROIDS);
 
     for (auto i : asteroids) {
-        //i->setAlive(false);
+        mngr_->setAlive(i, false);
     }
 
     numOfAsteroids_ = 0;
@@ -182,6 +193,27 @@ void AsteroidsSystem::destroyAllAsteroids()
 
 void AsteroidsSystem::onCollision(ecs::Entity* a)
 {
+    auto asteroid = mngr_->getComponent<Generations>(a);
+    
+       int g = asteroid->numgenerations - 1;
+       numOfAsteroids_--;
+        auto num = 0;
+        if (2 + numOfAsteroids_ <= maxAster)num = 2;
+        else num = 1;
+        if (g > 0 && g + numOfAsteroids_ <= maxAster) {
+            for (int i = 0; i < num; i++) {
+    
+                auto tr = mngr_->getComponent<Transform>(a);
+    
+                auto r = sdlutils().rand().nextInt(0, 360);
+                auto pos = tr->pos_ + tr->vel_.rotate(r) * 2 * std::max(tr->width_, tr->height_);
+                auto vel = tr->vel_.rotate(r) * 1.1f;
+    
+                createSonAsteroid(1, g, pos, vel);
+            }
+            numOfAsteroids_ += g;
+        }
+        mngr_->setAlive(a,false);
 }
 
 int AsteroidsSystem::getNumActualAst()

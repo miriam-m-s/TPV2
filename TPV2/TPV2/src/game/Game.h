@@ -12,7 +12,7 @@ class FighterSystem;
 class RenderSystem;
 class BulletsSystem;
 class AsteroidsSystem;
-
+class CollisionsSystem;
 class Game {
 public:
 	Game();
@@ -20,12 +20,13 @@ public:
 	void init();
 	void start();
 private:
-	void checkCollisions();
+
 	ecs::Manager *mngr_;
 
 	FighterSystem* fighterSystem_;
 	RenderSystem* rendersys_;
 	BulletsSystem* bulletSys_;
 	AsteroidsSystem* asteroidSystem_;
+	CollisionsSystem* colSystem_;
 };
 

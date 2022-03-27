@@ -17,6 +17,7 @@ public:
 	// en la práctica 1 y generar 1 asteroide nuevo cada 5 segundos (aparte
 	// de los 10 al principio de cada ronda).
 	void update() override;
+
 private:
 	// Para gestionar el mensaje de que ha habido un choque de un asteroide con una
 	// bala. Desactivar el asteroide “a” y crear 2 asteroides como en la práctica 1,
@@ -28,11 +29,11 @@ private:
 	// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema y
 	// añadir los asteroides iniciales (como en la práctica 1).
 	void onRoundStart();
-
+	void destroyAllAsteroids();
 	void createAsteroids(int n);
 	void createSonAsteroid(int n, int g, Vector2D transf, Vector2D vel);
 	void addAsteroidFrequently();
-	void destroyAllAsteroids();
+
 	void onCollision(ecs::Entity* a);
 	int getNumActualAst();
 	void showAtOpposideside(ecs::Entity* s);
