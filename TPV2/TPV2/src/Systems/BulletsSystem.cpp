@@ -14,12 +14,24 @@ void BulletsSystem::recieve(const Message& m)
 {
 	switch (m.id)
 	{
-	case _m_FIGHTER_SHOOT:
-		shoot(m.fighter_shoot.pos, m.fighter_shoot.vel, m.fighter_shoot.width, m.fighter_shoot.height, m.fighter_shoot.rot);
-		active_ = true;
-		break;
-	default:
-		break;
+		case _m_ROUND_START:
+			onRoundStart();
+			break;
+
+		case _m_ROUND_OVER:
+			onRoundOver();
+			break;
+		case _m_FIGHTER_SHOOT:
+			shoot(m.fighter_shoot.pos, m.fighter_shoot.vel, m.fighter_shoot.width, m.fighter_shoot.height, m.fighter_shoot.rot);
+			active_ = true;
+			break;
+
+		case _m_COLLISION_BULLET:
+			onCollision_BulletAsteroid(m.bullet_collision.bul);
+			break;
+
+		default:
+			break;
 	}
 }
 
@@ -70,6 +82,19 @@ void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double heigh
 	mngr_->addComponent<Image>(bullet, &sdlutils().images().at("fire"));
 	//sound
 	sdlutils().soundEffects().at("fire").play(0, 1);
+}
 
-	
+void BulletsSystem::onCollision_BulletAsteroid(ecs::Entity* b)
+{
+	mngr_->setAlive(b, false);
+}
+
+void BulletsSystem::onRoundOver()
+{
+	active_ = false;
+}
+
+void BulletsSystem::onRoundStart()
+{
+	active_ = true;
 }

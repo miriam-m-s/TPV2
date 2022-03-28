@@ -13,9 +13,8 @@
 
 void AsteroidsSystem::initSystem()
 {
-	active_ = true;
+	active_ = false;
     numOfAsteroids_ = 0;
-    createAsteroids(10);
 }
 
 void AsteroidsSystem::update()
@@ -43,11 +42,19 @@ void AsteroidsSystem::recieve(const Message& m) {
     switch (m.id)
     {
         case _m_COLLISION_BULLET:
-            onCollision(m.bullet_collision.ast);
+            onCollision_AsteroidBullet(m.bullet_collision.ast);
             break;
 
         case _m_COLLISION_FIGHTER:
             destroyAllAsteroids();
+            break;
+
+        case _m_ROUND_START:
+            onRoundStart();
+            break;
+
+        case _m_ROUND_OVER:
+            onRoundOver();
             break;
 
         default:
@@ -86,6 +93,17 @@ void AsteroidsSystem::follow(Transform* asteroidtr_)
     auto q = fightertr_->pos_;
 
     v = v.rotate(v.angle(q - p) > 0 ? 1.0f : -1.0f);
+}
+
+void AsteroidsSystem::onRoundOver()
+{
+    active_ = false;
+}
+
+void AsteroidsSystem::onRoundStart()
+{
+    createAsteroids(10);
+    active_ = true;
 }
 
 void AsteroidsSystem::createAsteroids(int n)
@@ -194,7 +212,7 @@ void AsteroidsSystem::destroyAllAsteroids()
     numOfAsteroids_ = 0;
 }
 
-void AsteroidsSystem::onCollision(ecs::Entity* a)
+void AsteroidsSystem::onCollision_AsteroidBullet(ecs::Entity* a)
 {
     auto asteroid = mngr_->getComponent<Generations>(a);
 

@@ -16,15 +16,40 @@
 
 void CollisionSystem::recieve(const Message& m)
 {
+	switch (m.id)
+	{
+
+		case _m_ROUND_START:
+			onRoundStart();
+			break;
+		case _m_ROUND_OVER:
+			onRoundOver();
+			break;
+		default:
+			break;
+	}
+}
+
+void CollisionSystem::onRoundOver()
+{
+	active_ = false;
+}
+
+void CollisionSystem::onRoundStart()
+{
+	active_ = true;
 }
 
 void CollisionSystem::initSystem()
 {
 	astSys_ = mngr_->getSystem<AsteroidsSystem>();
+	active_ = false;
 }
 
 void CollisionSystem::update()
 {
+
+	if (!active_) return;
 
 	auto fighter = mngr_->getHandler(ecs::_hdlr_FIGHTER);
 	auto bullets = mngr_->getEntities(ecs::_grp_BULLETS);
@@ -58,20 +83,20 @@ void CollisionSystem::AstFighterCollision(std::vector<ecs::Entity*> asteroids, e
 
 				m.id = _m_COLLISION_FIGHTER;
 
-				mngr_->send(m);
-
 				if (fighterhp_->vidas_ > 0) {
 					fightertr_->init(Vector2D(sdlutils().width() / 2, sdlutils().height() / 2), 
 						Vector2D(0, 0), fightertr_->width_, fightertr_->height_, 0.0);
 
 					fighterhp_->vidas_ -= 1;
 
-					//gManager->setState(States::PAUSED);
+					m.fighter_collision.gameOver = false;
 				}
 
 				else {
-					//gManager->setState(States::GAMEOVER);
+					m.fighter_collision.gameOver = true;
 				}
+
+				mngr_->send(m);
 
 				sdlutils().soundEffects().at("explosion").play(0, 1);
 			}
@@ -108,12 +133,11 @@ void CollisionSystem::AstBulletCollision(std::vector<ecs::Entity*> asteroids, st
 						asteroidtr_->height_, //
 						bullettr_->pos_, bullettr_->width_, bullettr_->height_)) {
 
-							mngr_->setAlive(bullet, false);
-
 							Message m;
 
 							m.id = _m_COLLISION_BULLET;
 							m.bullet_collision.ast = asteroid;
+							m.bullet_collision.bul = bullet;
 
 							mngr_->send(m);
 

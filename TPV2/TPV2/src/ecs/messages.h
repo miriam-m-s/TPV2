@@ -51,7 +51,9 @@ using msgId_type = uint8_t;
 enum msgId : msgId_type {
 	_m_FIGHTER_SHOOT,
 	_m_COLLISION_BULLET,
-	_m_COLLISION_FIGHTER
+	_m_COLLISION_FIGHTER,
+	_m_ROUND_START,
+	_m_ROUND_OVER
 };
 
 struct Message {
@@ -69,7 +71,12 @@ struct Message {
 	} fighter_shoot;
 
 	struct {
+		bool gameOver;
+	} fighter_collision;
+
+	struct {
 		ecs::Entity *ast;
+		ecs::Entity *bul;
 	} bullet_collision;
 
 };

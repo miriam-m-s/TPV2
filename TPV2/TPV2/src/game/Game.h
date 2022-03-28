@@ -13,6 +13,7 @@ class RenderSystem;
 class BulletsSystem;
 class AsteroidsSystem;
 class CollisionSystem;
+class GameControlSystem;
 
 class Game {
 public:
@@ -28,5 +29,6 @@ private:
 	BulletsSystem* bulletSys_;
 	AsteroidsSystem* asteroidSystem_;
 	CollisionSystem* collisionSystem_;
+	GameControlSystem* gameControlSystem_;
 };
 

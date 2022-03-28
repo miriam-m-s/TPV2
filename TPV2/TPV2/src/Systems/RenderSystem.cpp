@@ -6,6 +6,7 @@
 #include "../components/Image.h"
 #include "../components/Transform.h"
 #include "../components/Health.h"
+#include "../components/State.h"
 
 #include "../ecs/Manager.h"
 
@@ -25,6 +26,7 @@ void RenderSystem::update() {
 	drawFighter();
 	drawBullet();
 	drawAsteroids();
+	drawState();
 }
 void RenderSystem::drawBullet(){
 
@@ -79,5 +81,34 @@ void RenderSystem::drawFighter() {
 	for (int i = 0; i < fighterHp->vidas_; i++) {
 		sdlutils().images().at("heart").render(dest);
 		dest.x += 60;
+	}
+}
+
+void RenderSystem::drawState()
+{
+	auto info = mngr_->getHandler(ecs::_hdlr_GAMEINFO);
+
+	auto state = mngr_->getComponent<State>(info);
+
+	if (state->state != State::RUNNING) {
+
+		// game over message
+		if (state->state == State::GAMEOVER) {
+		 	auto& t = sdlutils().msgs().at("gameover");
+		 	t.render((sdlutils().width() - t.width()) / 2,
+		 		(sdlutils().height() - t.height()) / 2);
+		}
+
+		// new game message
+		if (state->state == State::NEWGAME) {
+		 	auto& t = sdlutils().msgs().at("start");
+		 	t.render((sdlutils().width() - t.width()) / 2,
+		 		sdlutils().height() / 2 + t.height() * 2);
+		}
+		else {
+		 	auto& t = sdlutils().msgs().at("continue");
+		 	t.render((sdlutils().width() - t.width()) / 2,
+		 		sdlutils().height() / 2 + t.height() * 2);
+		}
 	}
 }

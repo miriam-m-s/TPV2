@@ -18,5 +18,6 @@ private:
 	void drawAsteroids();
 	void drawBullet();
 	void drawFighter();
+	void drawState();
 };
 

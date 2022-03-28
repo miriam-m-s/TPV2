@@ -23,7 +23,7 @@ private:
 	// Para gestionar el mensaje de que ha habido un choque de un asteroide con una
 	// bala. Desactivar el asteroide “a” y crear 2 asteroides como en la práctica 1,
 	// y si no hay más asteroides enviar un mensaje correspondiente.
-	void onCollision_AsteroidBullet(Entity* a);
+	void onCollision_AsteroidBullet(ecs::Entity* a);
 	// Para gestionar el mensaje de que ha acabado la ronda. Desactivar todos los
 	// asteroides, y desactivar el sistema.
 	void onRoundOver();
@@ -38,8 +38,6 @@ private:
 	void addAsteroidFrequently();
 
 	void destroyAllAsteroids();
-	
-	void onCollision(ecs::Entity* a);
 		
 	void showAtOpposideside(ecs::Entity* s);
 	

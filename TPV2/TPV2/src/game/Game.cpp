@@ -7,6 +7,7 @@
 #include "../Systems/BulletsSystem.h"
 #include "../Systems/AsteroidsSystem.h"
 #include "../Systems/CollisionSystem.h"
+#include "../Systems/GameControlSystem.h"
 
 #include "../ecs/Entity.h"
 #include "../ecs/Manager.h"
@@ -40,6 +41,7 @@ void Game::init() {
 	bulletSys_ = mngr_->addSystem<BulletsSystem>();
 	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
+	gameControlSystem_ = mngr_->addSystem<GameControlSystem>();
 
 	//auto caza = mngr_->addEntity();
 	//mngr_->setHandler(ecs::_hdlr_CAZA, caza);
@@ -88,6 +90,8 @@ void Game::start() {
 		//	asteroidmanager->addAsteroidFrequently();
 		//	checkCollisions();
 		//}
+
+		gameControlSystem_->update();
 
 		fighterSystem_->update();
 		bulletSys_->update();

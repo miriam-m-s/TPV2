@@ -15,6 +15,24 @@
 
 using ecs::Manager;
 
+void FighterSystem::recieve(const Message& m)
+{
+	switch (m.id)
+	{
+
+		case _m_ROUND_START:
+			onRoundStart();
+			break;
+
+		case _m_ROUND_OVER:
+			onRoundOver();
+			break;
+
+		default:
+			break;
+	}
+}
+
 void FighterSystem::initSystem()
 {
 	auto fighter = mngr_->addEntity();
@@ -37,7 +55,7 @@ void FighterSystem::initSystem()
 
 	initTime = sdlutils().currRealTime();
 
-	active_ = true;
+	active_ = false;
 
 }
 
@@ -98,8 +116,16 @@ void FighterSystem::shoot(ecs::Entity* fighter)
 		}
 
 	}
+}
 
-	
+void FighterSystem::onRoundOver()
+{
+	active_ = false;
+}
+
+void FighterSystem::onRoundStart()
+{
+	active_ = true;
 }
 
 void FighterSystem::showAtOpposideSide()
