@@ -24,7 +24,7 @@ private:
 	// un asteroide. Tiene que avisar que ha acabado la ronda, quitar una vida
 	// al fighter, y si no hay más vidas avisar que ha acabado el juego (y quien
 	// es el ganador).
-	void onCollision_FighterAsteroid();
+	void onCollision_FighterAsteroid(bool h);
 
 		// Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
 		// ha acabado la ronda y además que ha acabado el juego (y quien es el ganador)

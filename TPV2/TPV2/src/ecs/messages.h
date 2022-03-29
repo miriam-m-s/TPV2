@@ -53,7 +53,8 @@ enum msgId : msgId_type {
 	_m_COLLISION_BULLET,
 	_m_COLLISION_FIGHTER,
 	_m_ROUND_START,
-	_m_ROUND_OVER
+	_m_ROUND_OVER,
+	_M_FIGHTER_WIN
 };
 
 struct Message {

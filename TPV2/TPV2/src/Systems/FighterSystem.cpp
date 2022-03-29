@@ -121,11 +121,19 @@ void FighterSystem::shoot(ecs::Entity* fighter)
 void FighterSystem::onRoundOver()
 {
 	active_ = false;
+
 }
 
 void FighterSystem::onRoundStart()
 {
 	active_ = true;
+	auto fighter = mngr_->getHandler(ecs::_hdlr_FIGHTER);
+
+
+	auto &health = mngr_->getComponent<Health>(fighter)->vidas_;
+	if (health <= 0) {
+		health = 3;
+	}
 }
 
 void FighterSystem::showAtOpposideSide()

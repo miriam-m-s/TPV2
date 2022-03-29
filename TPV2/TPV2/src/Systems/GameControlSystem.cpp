@@ -12,16 +12,13 @@ void GameControlSystem::recieve(const Message& m)
 
     switch (m.id)
     {
-
         case _m_COLLISION_FIGHTER:
+             onCollision_FighterAsteroid(m.fighter_collision.gameOver);
+            
+            break;
 
-            auto state_ = mngr_->getComponent<State>(gamemanager);
-
-            if (m.fighter_collision.gameOver) state_->state = State::GAMEOVER;
-            else {
-                state_->state = State::PAUSED;
-            }
-
+        case  _M_FIGHTER_WIN:
+            onAsteroidsExtinction();
             break;
     }
 
@@ -81,10 +78,19 @@ void GameControlSystem::update()
 
 }
 
-void GameControlSystem::onCollision_FighterAsteroid()
+void GameControlSystem::onCollision_FighterAsteroid(bool h)
 {
+    auto state_ = mngr_->getComponent<State>(gamemanager);
+    if (h) state_->state = State::PAUSED;
+    else state_->state = State::GAMEOVER;
+    Message s;
+    s.id = _m_ROUND_OVER;
+    mngr_->send(s);
+  
 }
 
 void GameControlSystem::onAsteroidsExtinction()
 {
+    auto state_ = mngr_->getComponent<State>(gamemanager);
+    state_->state = State::GAMEOVER;
 }

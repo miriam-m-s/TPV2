@@ -86,13 +86,14 @@ void CollisionSystem::AstFighterCollision(std::vector<ecs::Entity*> asteroids, e
 				if (fighterhp_->vidas_ > 0) {
 					fightertr_->init(Vector2D(sdlutils().width() / 2, sdlutils().height() / 2), 
 						Vector2D(0, 0), fightertr_->width_, fightertr_->height_, 0.0);
-
 					fighterhp_->vidas_ -= 1;
 
-					m.fighter_collision.gameOver = false;
+					
 				}
 
 				else {
+					fightertr_->init(Vector2D(sdlutils().width() / 2, sdlutils().height() / 2),
+						Vector2D(0, 0), fightertr_->width_, fightertr_->height_, 0.0);
 					m.fighter_collision.gameOver = true;
 				}
 
@@ -144,7 +145,10 @@ void CollisionSystem::AstBulletCollision(std::vector<ecs::Entity*> asteroids, st
 							if (astSys_->getNumActualAst() == 0) {
 								fightertr_->init(Vector2D(sdlutils().width() / 2, sdlutils().height() / 2),
 									Vector2D(0, 0), fightertr_->width_, fightertr_->height_, 0.0);
-
+								
+								Message s;
+								s.id = _M_FIGHTER_WIN;
+								mngr_->send(s);
 								//gManager->setState(States::GAMEOVER);
 							}
 
