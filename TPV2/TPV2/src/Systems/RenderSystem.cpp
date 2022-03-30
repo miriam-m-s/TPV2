@@ -100,7 +100,7 @@ void RenderSystem::drawState()
 		}
 
 		// new game message
-		if (state->state == State::NEWGAME) {
+		else if (state->state == State::NEWGAME) {
 		 	auto& t = sdlutils().msgs().at("start");
 		 	t.render((sdlutils().width() - t.width()) / 2,
 		 		sdlutils().height() / 2 + t.height() * 2);

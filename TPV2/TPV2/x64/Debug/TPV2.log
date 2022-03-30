@@ -1,9 +1,7 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(477,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  FighterSystem.cpp
-C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\Transform.h(8,18): warning C4099: 'Transform': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\components\Transform.h(8): message : vea la declaración de 'Transform'
-C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\Systems\FighterSystem.cpp(56,36): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\Systems\FighterSystem.cpp(103,38): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\Systems\FighterSystem.cpp(145,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\TPV2\src\Systems\FighterSystem.cpp(148,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  TPV2.vcxproj -> C:\Users\miria\Desktop\PRACT2TPV2\TPV2_PRACT2\TPV2\bin\TPV2Debug.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  RenderSystem.cpp
+C:\Users\34690\OneDrive\Documentos\SEGUNDO DE CARRERA\SEGUNDO CUATRIMESTRE\TPV2\Práctica\Asteroids\Práctica\PARTE_2\TPV2\TPV2\src\components\FramedImage.h(18,42): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\34690\OneDrive\Documentos\SEGUNDO DE CARRERA\SEGUNDO CUATRIMESTRE\TPV2\Práctica\Asteroids\Práctica\PARTE_2\TPV2\TPV2\src\components\FramedImage.h(43,44): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\34690\OneDrive\Documentos\SEGUNDO DE CARRERA\SEGUNDO CUATRIMESTRE\TPV2\Práctica\Asteroids\Práctica\PARTE_2\TPV2\TPV2\src\components\Transform.h(8,18): warning C4099: 'Transform': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+C:\Users\34690\OneDrive\Documentos\SEGUNDO DE CARRERA\SEGUNDO CUATRIMESTRE\TPV2\Práctica\Asteroids\Práctica\PARTE_2\TPV2\TPV2\src\components\Transform.h(8): message : vea la declaración de 'Transform'
+  TPV2.vcxproj -> C:\Users\34690\OneDrive\Documentos\SEGUNDO DE CARRERA\SEGUNDO CUATRIMESTRE\TPV2\Práctica\Asteroids\Práctica\PARTE_2\TPV2\bin\TPV2Debug.exe

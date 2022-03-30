@@ -17,7 +17,7 @@ void GameControlSystem::recieve(const Message& m)
             
             break;
 
-        case  _M_FIGHTER_WIN:
+        case  _m_FIGHTER_WIN:
             onAsteroidsExtinction();
             break;
     }
@@ -81,8 +81,10 @@ void GameControlSystem::update()
 void GameControlSystem::onCollision_FighterAsteroid(bool h)
 {
     auto state_ = mngr_->getComponent<State>(gamemanager);
-    if (h) state_->state = State::PAUSED;
-    else state_->state = State::GAMEOVER;
+    if (!h) state_->state = State::PAUSED;
+    else {
+        state_->state = State::GAMEOVER;
+    }
     Message s;
     s.id = _m_ROUND_OVER;
     mngr_->send(s);

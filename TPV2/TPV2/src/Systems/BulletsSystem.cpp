@@ -92,6 +92,11 @@ void BulletsSystem::onCollision_BulletAsteroid(ecs::Entity* b)
 void BulletsSystem::onRoundOver()
 {
 	active_ = false;
+
+	for (auto i : mngr_->getEntities(ecs::_grp_BULLETS)) {
+
+		mngr_->setAlive(i, false);
+	}
 }
 
 void BulletsSystem::onRoundStart()
