@@ -42,27 +42,6 @@ void Game::init() {
 	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
 	gameControlSystem_ = mngr_->addSystem<GameControlSystem>();
-
-	//auto caza = mngr_->addEntity();
-	//mngr_->setHandler(ecs::_hdlr_CAZA, caza);
-	//auto tr = caza->addComponet<Transform>();
-	//auto s = 50.0f;
-	//auto x = (sdlutils().width() - s) / 2.0f;
-	//auto y = (sdlutils().height() - s) / 2.0f;
-	//tr->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
-	//caza->addComponet < Image >(&sdlutils().images().at("fighter"));
-	//caza->addComponet<FighterControl>();
-	//caza->addComponet<DeAcceleration>();
-	//caza->addComponet<ShowAtOpposideSide>();
-	//caza->addComponet<Gun>();
-	//caza->addComponet<Health>();
-	//// Create the asteroid manager
-	//asteroidmanager = new AsteroidsManager(mngr_);
-	////Game Control
-	//auto gamemanager = mngr_->addEntity();
-	//mngr_->setHandler(ecs::_hdlr_GAMEINFO, gamemanager);
-	//gamemanager->addComponet<State>();
-	//gamemanager->addComponet<GameCtrl>(asteroidmanager);
 }
 
 void Game::start() {
@@ -71,7 +50,6 @@ void Game::start() {
 	bool exit = false;
 
 	auto &ihdlr = ih();
-	//auto gmanager = mngr_->getHandler(ecs::_hdlr_GAMEINFO)->getComponent<State>();
 
 	while (!exit) {
 		Uint32 startTime = sdlutils().currRealTime();
@@ -84,12 +62,7 @@ void Game::start() {
 			continue;
 		}
 
-		//mngr_->update();
 		mngr_->refresh();
-		//if (gmanager->getstate() == State::RUNNING) {
-		//	asteroidmanager->addAsteroidFrequently();
-		//	checkCollisions();
-		//}
 
 		gameControlSystem_->update();
 
@@ -99,7 +72,6 @@ void Game::start() {
 		collisionSystem_->update();
 
 		sdlutils().clearRenderer();
-		//mngr_->render();
 		rendersys_->update();
 		sdlutils().presentRenderer();
 

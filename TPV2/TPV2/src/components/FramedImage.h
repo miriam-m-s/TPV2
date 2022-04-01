@@ -20,10 +20,6 @@ class Texture;
 
     virtual ~FramedImage() {};
 
- 	void setTexture(Texture* tex) {
- 		tex_ = tex;
- 	}
-
  	void select_sprite(int x, int y){
         m_clip.x = x * m_clip.w;
         m_clip.y = y * m_clip.h;

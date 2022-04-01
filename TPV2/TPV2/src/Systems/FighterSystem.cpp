@@ -164,11 +164,15 @@ void FighterSystem::moveFighter(ecs::Entity* fighter)
 
 	if (ihdlr.keyDownEvent()) {
 
+
 		if (ihdlr.isKeyDown(fighterCtrl->up_)) {
 
 			float speed = std::min(3.0f, fighter_tr->vel_.magnitude() + 1.0f);
 			
 			fighter_tr->vel_ = Vector2D(0, -speed).rotate(fighter_tr->rot_);
+
+			sdlutils().soundEffects().at("thrust").play(0, 1);
+
 		}
 		else if (ihdlr.isKeyDown(fighterCtrl->right_)) {
 			fighter_tr->rot_ = fighter_tr->rot_ + fighterCtrl->speed_;
